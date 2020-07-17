@@ -3,11 +3,16 @@
 function feetToMile(feet){
     var mile = (1 / 5280) * feet;
 
-    return mile;
+    if(feet < 0){
+        return "Invalid input. Length can't be negative";
+    }
+
+    return "your required mile is = " + mile;
 }
 
 var result1 = feetToMile(25);
-console.log("your required mile is =", result1);
+console.log(result1);
+
 
 // woodCalculator
 
@@ -23,10 +28,14 @@ function woodCalculator(chair, table, bed){
 var result2 = woodCalculator(4, 1, 3);
 console.log("Total wood needed in cubic feet =", result2);
 
+
 // brickCalculator
 
 function brickCalculator(floors){
-    if(floors > 0 && floors <= 10){
+    if(floors <= 0){
+        return "invalied input.";
+    }
+    else if(floors > 0 && floors <= 10){
         var totalFeet = floors * 15;
     }
     else if(floors <= 20){
@@ -35,17 +44,15 @@ function brickCalculator(floors){
     else if(floors > 20){
         totalFeet = 10 * 15 + 10 * 12 + (floors - 20) * 10;
     }
-    else{
-        console.log("invalied input");
-    }
 
     var bricks = totalFeet * 1000;
-    return bricks;
+    return "Total bricks you needed = " + bricks;
 }
 
-var buildingFloors = 29;
+var buildingFloors = 27;
 result3 = brickCalculator(buildingFloors);
-console.log("total bricks you needed = ", result3);
+console.log(result3);
+
 
 // tinyFriend
 
@@ -65,5 +72,5 @@ function tinyFriend(friends){
 }
 
 var classMates = ["zami", "nayan", "dip", "talukder", "apurba"];
-result4 = tinyFriend(classMates)
+result4 = tinyFriend(classMates);
 console.log("The smallest name among friends is =", result4);
